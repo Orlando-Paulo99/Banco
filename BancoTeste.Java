@@ -8,7 +8,7 @@ public class bancoTeste {
 
   public static void main(String[] args) {
   
-  
+  //CADASTRO DO CLIENTE
   Cadastro user=new Cadastro();
   Scanner teclado=new Scanner(System.in);
 
@@ -24,6 +24,9 @@ user.idade=teclado.nextInt();
 System.out.print("Digite seu CPF");
 user.cpf=teclado.nextInt();
 
+System.out.println("Digite seu Telefone");
+user.tell=teclado.nextInt();
+
 if(user.idade<16){
   System.out.printf("Olá %s!\nInfelizmente não podemos seguir em frente com o seu cadastro,pois você não é maior que 16 anos",user.primeiroNome);
 }else{
@@ -34,24 +37,39 @@ if(user.idade<16){
 
 Cliente c=new Cliente();
 c.pNome=user.primeiroNome;
+c.sNome=user.segundoNome;
 c.cpf=user.cpf;
+c.telefone=user.tell;
+System.out.println("Olá "+c.pNome+"! Seja muito bem-vindo\nSegue abaixo seus dados:");
+System.out.println("CPF:"+c.cpf);
+System.out.println("Telefalone:"+c.telefone);
+System.out.println("Agencia:0001");
+c.geradorConta();
 
-System.out.println(c.cpf);
-
-
+//Conta Corrente
 ContaCorrente cc=new ContaCorrente();
-System.out.println("Digite seu primeiro nome");
-cc.primeiroNome=teclado.next();
-System.out.println("Digite seu segundo nome");
-cc.segundoNome=teclado.next();
+cc.Ccredito=50;
+System.out.println("olá"+user.primeiroNome+"Deseja solicitar cartão de credito?\nDigite [1] para Sim ou [2] para não");
+int pergunta=teclado.nextInt();
 
-if(cc.primeiroNome != user.primeiroNome || cc.segundoNome != user.segundoNome);{
-  System.out.println("Dados não cadastrados");
+if(pergunta==1){
+  System.out.println("Digite seu CPF");
+  int digCpf=teclado.nextInt();
+  if(digCpf != c.cpf){
+    System.out.println("CPF invalido!Volte outra vez");
+  }else{
+    if(user.idade<18){
+      System.out.println("Infelizmente não temos credito disponivel para você");
+    }else{
+      System.out.println("Parabéns! Você ganhou "+cc.Ccredito+" de crédito");
+    }
+  }
+}
+if(pergunta==2){
+  System.out.println("Poxa...Tudo bem,quando desejar solicitar deu cartão de credito estamos a sua disposição");
 }
 
 
-   
-   
    
    
    
