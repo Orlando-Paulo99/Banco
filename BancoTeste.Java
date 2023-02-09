@@ -1,3 +1,4 @@
+import banco.Cadastro;
 import banco.Cliente;
 import banco.ContaCorrente;
 import java.util.Scanner;
@@ -8,47 +9,51 @@ public class bancoTeste {
   public static void main(String[] args) {
   
   
-  Cliente user=new Cliente();
+  Cadastro user=new Cadastro();
   Scanner teclado=new Scanner(System.in);
 
+System.out.print("Digite seu primeiro nome:");
+user.primeiroNome=teclado.next();
+
+System.out.print("Digite seu segundo nome:");
+user.segundoNome=teclado.next();
+
+System.out.print("Digite sua idade");
+user.idade=teclado.nextInt();
+
+System.out.print("Digite seu CPF");
+user.cpf=teclado.nextInt();
+
+if(user.idade<16){
+  System.out.printf("Olá %s!\nInfelizmente não podemos seguir em frente com o seu cadastro,pois você não é maior que 16 anos",user.primeiroNome);
+}else{
+  System.out.println("Cadastro concluido com sucesso");
   
-  System.out.println("Digite seu nome");
-  user.nome=teclado.next();
-  System.out.printf("Olá,%s.Seja muito bem-vindo",user.nome);
-  user.set_digiCpf(122222333);
-  System.out.println("\nDados da conta");
-  System.out.println("\nCpf: "+user.get_mostrarCpf());
-  user.agencia=00-01;
-  System.out.println("Agencia: "+user.agencia);
-  user.geradorConta();
-  user.set_digiTell(992624419);
-  System.out.println("Telefone: "+user.get_mostrarTelefone());
-  user.set_digiEndereco("Subida Pedro Braz,n°54");
-  System.out.println("Endereço: "+user.get_mostrarEndereco());
-  
-  //CONTA-CORRENTE
-  ContaCorrente cr=new ContaCorrente();
-  
-  System.out.println("Digite sua idade");
-  cr.idade=teclado.nextInt();
-  cr.Ccredito=0;
-  
-  
-if(cr.idade<=16 || cr.idade>=18){
-  System.out.println("Conta aprovada com sucesso");
-}if(cr.idade>=18){
-  if(cr.Ccredito==0){
-    cr.Ccredito=50;
-    System.out.println("Foi liberado R$ "+cr.Ccredito+" para você");
-   }
 }
-  
-  
+//ATRIBUINDO OS DADOS DOS CLIENTES
+
+Cliente c=new Cliente();
+c.pNome=user.primeiroNome;
+c.cpf=user.cpf;
+
+System.out.println(c.cpf);
+
+
+ContaCorrente cc=new ContaCorrente();
+System.out.println("Digite seu primeiro nome");
+cc.primeiroNome=teclado.next();
+System.out.println("Digite seu segundo nome");
+cc.segundoNome=teclado.next();
+
+if(cc.primeiroNome != user.primeiroNome || cc.segundoNome != user.segundoNome);{
+  System.out.println("Dados não cadastrados");
+}
+
+
    
-  
-  
-  
-  
+   
+   
+   
    
   }
 }
