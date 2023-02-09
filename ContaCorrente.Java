@@ -1,9 +1,12 @@
+
 public class ContaCorrente extends BancoModelo {
-int idade;
+int cpf;
 double Ccredito;
 
 
 
 
 }
+
+
 
