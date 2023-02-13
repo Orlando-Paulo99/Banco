@@ -1,6 +1,7 @@
 import banco.Cadastro;
 import banco.Cliente;
 import banco.ContaCorrente;
+import banco.Poupanca;
 import java.util.Scanner;
 
 
@@ -26,6 +27,9 @@ user.cpf=teclado.nextInt();
 
 System.out.println("Digite seu Telefone");
 user.tell=teclado.nextInt();
+
+
+
 
 if(user.idade<16){
   System.out.printf("Olá %s!\nInfelizmente não podemos seguir em frente com o seu cadastro,pois você não é maior que 16 anos",user.primeiroNome);
@@ -66,9 +70,15 @@ if(pergunta==1){
   }
 }
 if(pergunta==2){
-  System.out.println("Poxa...Tudo bem,quando desejar solicitar deu cartão de credito estamos a sua disposição");
-}
+  System.out.println("Poxa...Tudo bem,quando desejar solicitar seu cartão de credito estamos a sua disposição");
 
+
+//POUPANÇA
+Poupanca p=new Poupanca();
+
+p.set_depositar(100);
+System.out.println("Seu saldo é:"+p.get_deposito());
+p.rendimento();
 
    
    
