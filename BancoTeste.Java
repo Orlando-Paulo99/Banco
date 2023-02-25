@@ -38,7 +38,7 @@ if(user.idade<16){
   
 }
 //ATRIBUINDO OS DADOS DOS CLIENTES
-
+System.out.println("====================================");
 Cliente c=new Cliente();
 c.pNome=user.primeiroNome;
 c.sNome=user.segundoNome;
@@ -50,8 +50,10 @@ System.out.println("Telefalone:"+c.telefone);
 System.out.println("Agencia:0001");
 c.geradorConta();
 
+System.out.println("====================================");
 //Conta Corrente
 ContaCorrente cc=new ContaCorrente();
+
 cc.Ccredito=50;
 System.out.println("olá"+user.primeiroNome+"Deseja solicitar cartão de credito?\nDigite [1] para Sim ou [2] para não");
 int pergunta=teclado.nextInt();
@@ -59,7 +61,7 @@ int pergunta=teclado.nextInt();
 if(pergunta==1){
   System.out.println("Digite seu CPF");
   int digCpf=teclado.nextInt();
-  if(digCpf != c.cpf){
+  if(digCpf != c.cpf){}
     System.out.println("CPF invalido!Volte outra vez");
   }else{
     if(user.idade<18){
@@ -68,21 +70,38 @@ if(pergunta==1){
       System.out.println("Parabéns! Você ganhou "+cc.Ccredito+" de crédito");
     }
   }
-}
+
 if(pergunta==2){
   System.out.println("Poxa...Tudo bem,quando desejar solicitar seu cartão de credito estamos a sua disposição");
+  
+}
 
 
 //POUPANÇA
 Poupanca p=new Poupanca();
 
+
 p.set_depositar(100);
 System.out.println("Seu saldo é:"+p.get_deposito());
-p.rendimento();
 
-   
-   
-   
+
+//TRANSFERENCIA
+System.out.println("Transferir para conta corrente?[1]-Sim\n[2]-Não");
+int userP=teclado.nextInt();
+
+if(userP==1){
+  
+  cc.saldo=p.get_deposito();
+  System.out.println("Saldo Conta Corrente:"+cc.saldo);
+  System.out.println("Saldo conta poupança:"+p.get_deposito());
+  
+}
+else{
+  System.out.println("Tudo bem");
+}
+
+
   }
 }
+
  
